@@ -1,9 +1,10 @@
 import { Request, Response } from "express"
-import { get_phone_service } from "../services/phones_service"
+import { post_phone_service } from "../services/phones_service"
 
-export function get_phones(req: Request,res: Response){
-    const phone = req.body
-    get_phone_service()
 
-    res.sendStatus(201)
+export function post_phones(req: Request,res: Response){
+    const register = req.body
+    post_phone_service(register)
+
+    return res.sendStatus(200)
 }
