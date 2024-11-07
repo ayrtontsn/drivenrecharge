@@ -5,7 +5,7 @@ export function schemaValidate(schema: Schema ) {
     return (req: Request,res: Response,next: NextFunction) => {
         const validacao = schema.validate(req.body,{abortEarly:false});
         if (validacao.error) throw {
-            type: "BAD REQUEST",
+            name: "UNPROCESSABLE ENTITY",
             message: validacao.error.details.map(detail => detail.message)
         }
         next();

@@ -1,5 +1,3 @@
-import { Description } from "joi";
-
 export type Register = {
     id: number;
     phone: string;

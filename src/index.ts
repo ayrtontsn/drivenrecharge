@@ -15,9 +15,9 @@ app.get("/health", (req: Request, res: Response) => {
   res.status(200).send("I'm ok!");
 });
 
-app.use(phones_router)
+app.use(phones_router);
 
-app.use(error_handling_middleware); //Fix error_handler_middleware
+app.use(error_handling_middleware);
 
 const porta = process.env.PORT || 5000
 app.listen(porta,()=>{console.log(`Servidor rodando na porta: ${porta}`)})
