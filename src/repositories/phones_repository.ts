@@ -36,12 +36,19 @@ async function search_phones(phone: string){
 
 async function search_phones_by_cpf(cpf: string){
     const result_user = await db.query<Phones_user>(`SELECT users.id, users.cpf, users.name, 
-                        phones.phone, carriers.name FROM phones 
+                        phones.id AS phone_id, phones.phone, carriers.name FROM phones 
                         JOIN users ON phones.user_id = users.id
                         JOIN carriers ON carriers.id = phones.carriers_id
                         WHERE users.cpf = $1;`,[cpf])
     return result_user
 }
+
+async function search_phones_by_phoneId(phone_id: number){
+    const result_phone = await db.query<Phones_user>(`SELECT * FROM phones 
+                        WHERE phones.id = $1;`,[phone_id])
+
+    return result_phone
+    }
 
 
 
@@ -52,7 +59,8 @@ const phones_repository = {
     resgister_user,
     resgister_phone,
     search_phones,
-    search_phones_by_cpf
+    search_phones_by_cpf,
+    search_phones_by_phoneId
 }
 
 

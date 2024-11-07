@@ -22,3 +22,10 @@ CREATE TABLE phones (
   user_id INTEGER NOT NULL REFERENCES "users"("id"),
   carriers_id INTEGER NOT NULL REFERENCES "carriers"("id")
 );
+
+CREATE TABLE recharges (
+  id SERIAL PRIMARY KEY,
+  value INTEGER NOT NULL,
+  date DATE NOT NULL DEFAULT NOW(),
+  id_phone INTEGER NOT NULL
+);

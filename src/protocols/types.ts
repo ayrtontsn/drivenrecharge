@@ -15,4 +15,10 @@ export type User = Omit<Register, "phone" | "description" | "carriers_id">;
 
 export type Phones_user = Omit<Register, "description" | "carriers_id"> & {
     carriers: string;
+    phone_id?: number;
+}
+
+export type Info_recharge = {
+    id_phone: number;
+    value_recharge: number;
 }

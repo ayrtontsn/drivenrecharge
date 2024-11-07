@@ -16,8 +16,7 @@ export async function post_phone_service(register: Register){
 
 export async function get_phone_service(document: string){
     const phones_full = await phones_repository.search_phones_by_cpf(document)
-
-    const phones = phones_full.rows.map(phone => phone.phone)
+    const phones = phones_full.rows.map(phone => [phone.phone_id, phone.phone])
 
     return phones
 }
