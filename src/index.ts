@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 import phones_router from "./routers/phones_router";
 import error_handling_middleware from "./middlewares/error_handler_middleware";
 import recharges_router from "./routers/recharges_router";
+import summary_router from "./routers/summary_router";
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.get("/health", (req: Request, res: Response) => {
 
 app.use(phones_router);
 app.use(recharges_router);
+app.use(summary_router);
 
 app.use(error_handling_middleware);
 

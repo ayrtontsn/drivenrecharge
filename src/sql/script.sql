@@ -27,5 +27,5 @@ CREATE TABLE recharges (
   id SERIAL PRIMARY KEY,
   value INTEGER NOT NULL,
   date DATE NOT NULL DEFAULT NOW(),
-  id_phone INTEGER NOT NULL
+  id_phone INTEGER NOT NULL REFERENCES "phones"("id")
 );
