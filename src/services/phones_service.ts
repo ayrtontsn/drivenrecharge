@@ -1,12 +1,14 @@
-import { cpf_error } from "../errors/errors"
+import { phone_cpf_error, phone_error } from "../errors/errors"
 import { Register } from "../protocols/types"
 import phones_repository from "../repositories/phones_repository"
 
 export async function post_phone_service(register: Register){
     
-    const conflict = await phones_repository.search_phones(register.phone)
+    const conflict_phone = await phones_repository.search_phones(register.phone)
+    const conflict_cpf = await phones_repository.search_phones_by_cpf(register.cpf)
     
-    if(conflict.rowCount>0) throw cpf_error("cliente","cpf");
+    if(conflict_phone.rowCount>0) throw phone_error();
+    if (conflict_cpf.rowCount>=3) throw phone_cpf_error()
 
     const check_cpf = await phones_repository.search_phones_by_cpf(register.cpf)
     await phones_repository.resgister_phone(register, check_cpf.rows) 

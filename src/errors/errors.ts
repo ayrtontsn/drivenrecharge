@@ -1,7 +1,14 @@
-export function cpf_error(classify: string,user: string){
+export function phone_error(){
     return {
             name: "CONFLICT",
-            message: `Um ${classify} com esse ${user} já existe!` 
+            message: `Esse phone já está cadastrado!` 
+        }
+}
+
+export function phone_cpf_error(){
+    return {
+            name: "CONFLICT",
+            message: `Existem 3 phones já está cadastrados nesse cpf!` 
         }
 }
 
