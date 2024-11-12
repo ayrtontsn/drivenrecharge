@@ -7,6 +7,6 @@ import { recharge_schema } from "../schemas/recharges_schema";
 
 const recharges_router = Router();
 
-recharges_router.post("/recharge",schemaValidate(recharge_schema),post_recharges)
-recharges_router.get("/recharge/:phone",schemaValidate(recharge_schema),get_recharges)
+recharges_router.post("/recharges",schemaValidate(recharge_schema),post_recharges)
+recharges_router.get("/recharges/:phone",get_recharges)
 export default recharges_router

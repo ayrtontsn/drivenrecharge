@@ -25,7 +25,7 @@ CREATE TABLE phones (
 
 CREATE TABLE recharges (
   id SERIAL PRIMARY KEY,
-  value INTEGER NOT NULL,
+  value DOUBLE PRECISION NOT NULL,
   date DATE NOT NULL DEFAULT NOW(),
   id_phone INTEGER NOT NULL REFERENCES "phones"("id")
 );

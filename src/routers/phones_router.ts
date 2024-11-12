@@ -5,7 +5,7 @@ import { phone_schema } from "../schemas/phones_schema";
 
 const phones_router = Router();
 
-phones_router.post("/phone", schemaValidate(phone_schema),post_phones)
-phones_router.get("/phone/:document", get_phones)
+phones_router.post("/phones", schemaValidate(phone_schema),post_phones)
+phones_router.get("/phones/:document", get_phones)
 
 export default phones_router

@@ -22,4 +22,13 @@ export type Phones_user = Omit<Register, "carriers_id"> & {
 export type Info_recharge = {
     id_phone: number;
     value_recharge: number;
+    date: Date;
+}
+
+export type Phones = {
+    id: number;
+    phone: string;
+    description: string;
+    user_id: number;
+    carriers_id: number;
 }

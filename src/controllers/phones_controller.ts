@@ -1,11 +1,10 @@
 import { Request, Response } from "express"
 import { get_phone_service, post_phone_service } from "../services/phones_service"
 
-
 export async function post_phones(req: Request,res: Response){
     const register = req.body
-    await post_phone_service(register)
-    res.sendStatus(201)
+    const post_phone = await post_phone_service(register)
+    res.status(201).send(post_phone)
 }
 
 export async function get_phones(req: Request,res: Response){
