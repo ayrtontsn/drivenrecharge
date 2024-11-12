@@ -1,5 +1,4 @@
 import phones_repository from "../repositories/phones_repository"
-import { Phones } from "../protocols/types"
 import recharge_repository from "../repositories/recharges_repository"
 
 export async function get_summary_service(document: string){

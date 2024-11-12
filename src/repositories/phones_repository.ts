@@ -1,4 +1,4 @@
-import { Phone, Phones, Phones_user, Register, User } from "../protocols/types";
+import { Carriers, Phones, Register, User } from "../protocols/types";
 import { db } from "../config/database";
 
 async function resgister_user(cpf: string, name: string){
@@ -32,14 +32,14 @@ async function search_phones_by_cpf(cpf: string){
 }
 
 async function search_phones_by_phoneId(phone_id: number){
-    const result_phone = await db.query<Phones_user>(`SELECT * FROM phones 
+    const result_phone = await db.query<Phones>(`SELECT * FROM phones 
                         WHERE phones.id = $1;`,[phone_id])
 
     return result_phone
     }
 
 async function phone_carrier(phone_id: number){
-    const result_carrier = await db.query<Phones_user>(`SELECT carriers.* FROM carriers
+    const result_carrier = await db.query<Carriers>(`SELECT carriers.* FROM carriers
                         JOIN phones ON carriers.id = phones.carriers_id
                         WHERE phones.id = $1;`,[phone_id])
     return result_carrier.rows

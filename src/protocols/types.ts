@@ -7,17 +7,7 @@ export type Register = {
     carriers_id: number;
 }
 
-export type Phone = Omit<Register, "cpf" | "name"> & {
-    user_id: number
-};
-
 export type User = Omit<Register, "phone" | "description" | "carriers_id">;
-
-export type Phones_user = Omit<Register, "carriers_id"> & {
-    carriers_name: string;
-    phone_id: number;
-    carriers_code: number;
-}
 
 export type Info_recharge = {
     id_phone: number;
@@ -31,4 +21,10 @@ export type Phones = {
     description: string;
     user_id: number;
     carriers_id: number;
+}
+
+export type Carriers = {
+    id: number;
+    name: string;
+    code: number;
 }
